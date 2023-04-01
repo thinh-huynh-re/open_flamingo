@@ -2,7 +2,7 @@ import torch
 from einops import rearrange
 from torch import nn
 
-from .helpers import PerceiverResampler
+from .helpers import PerceiverResampler, num_params
 
 
 class Flamingo(nn.Module):
@@ -41,6 +41,10 @@ class Flamingo(nn.Module):
             cross_attn_every_n_layers=cross_attn_every_n_layers,
             use_media_placement_augmentation=self.use_media_placement_augmentation,
         )
+        
+        print("Number of vision_encoder's params", num_params(self.vision_encoder))
+        print("Number of lang_encoder's params", num_params(self.lang_encoder))
+        print("Number of perceiver's params", num_params(self.perceiver))
 
     def forward(
         self,

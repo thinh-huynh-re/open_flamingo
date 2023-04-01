@@ -34,7 +34,9 @@ def create_model_and_transforms(
         Tokenizer: A tokenizer for the language model
     """
     vision_encoder, _, image_processor = open_clip.create_model_and_transforms(
-        clip_vision_encoder_path, pretrained=clip_vision_encoder_pretrained
+        clip_vision_encoder_path,
+        pretrained=clip_vision_encoder_pretrained,
+        cache_dir="cache",
     )
     # set the vision encoder to output the visual features
     vision_encoder.visual.output_tokens = True
@@ -51,7 +53,7 @@ def create_model_and_transforms(
         # modify labels for the loss.
         text_tokenizer.add_special_tokens({"pad_token": "<PAD>"})
 
-    lang_encoder = AutoModelForCausalLM.from_pretrained(
+    lang_encoder: FlamingoLMMixin = AutoModelForCausalLM.from_pretrained(
         lang_encoder_path, local_files_only=use_local_files, cache_dir="cache"
     )
     extend_instance(lang_encoder, FlamingoLMMixin)

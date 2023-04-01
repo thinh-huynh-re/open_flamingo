@@ -45,7 +45,7 @@ nvidia-cusparse-cu11==11.7.4.91
 nvidia-nccl-cu11==2.14.3
 nvidia-nvtx-cu11==11.7.91
 open-clip-torch==2.16.0
--e git+ssh://git@github.com/thinh-huynh-re/open_flamingo.git@daadbbe4069212c10ca0accbb2e638a38628733d#egg=open_flamingo
+-e git+http://ddd:5NzjwKaLsafcdBVpMsjD@source.cyberspace.vn/thinhhnt/open_flamingo.git@98ae64e6a5dad10c65848fc24bea0df99ed9e409#egg=open_flamingo
 packaging==23.0
 pandas==1.5.3
 pathtools==0.1.2
@@ -71,7 +71,7 @@ tokenizers==0.13.2
 torch==2.0.0
 torchvision==0.15.1
 tqdm==4.65.0
-transformers==4.27.4
+transformers @ git+https://github.com/huggingface/transformers@c612628045822f909020f7eb6784c79700813eda
 triton==2.0.0
 typing_extensions==4.5.0
 urllib3==1.26.15

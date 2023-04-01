@@ -140,3 +140,5 @@ wandb
 
 # Pyre type checker
 .pyre/
+
+transformers

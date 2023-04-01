@@ -7,6 +7,8 @@ from einops import rearrange, repeat
 from einops_exts import rearrange_many
 from torch import einsum, nn
 
+def num_params(model: nn.Module) -> str:
+    return "{:,}".format(sum(p.numel() for p in model.parameters()))
 
 def exists(val):
     return val is not None
